@@ -39,11 +39,4 @@ public class TextFileReader {
         return tempLinesOfText;
     }
 
-
-    public void printLines() {
-        for (String s : linesOfText) {
-            System.out.println(s);
-        }
-    }
-
 }

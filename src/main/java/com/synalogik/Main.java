@@ -6,9 +6,7 @@ public class Main {
         String fileDir = "C:\\Users\\Jake\\Documents\\bible.txt";
         TextFile file = new TextFile(fileDir);
         TextFileReader reader = new TextFileReader(file);
-        reader.printLines();
         TextFileAnalyser analyser = new TextFileAnalyser(reader.getLinesOfText());
-        System.out.println();
         analyser.printResults();
 
     }

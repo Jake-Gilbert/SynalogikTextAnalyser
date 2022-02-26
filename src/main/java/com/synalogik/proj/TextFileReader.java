@@ -1,6 +1,4 @@
-package com.synalogik;
-
-import org.w3c.dom.Text;
+package com.synalogik.proj;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -20,7 +18,7 @@ public class TextFileReader {
         return linesOfText;
     }
 
-    private ArrayList<String> ReadAllLines(TextFile file) throws Exception {
+    public ArrayList<String> ReadAllLines(TextFile file) throws Exception {
         FileReader fileReader;
         ArrayList<String> tempLinesOfText = new ArrayList<>();
 

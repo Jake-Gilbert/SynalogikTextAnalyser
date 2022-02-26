@@ -1,4 +1,4 @@
-package com.synalogik;
+package com.synalogik.proj;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class TextFileAnalyser {
 
     }
 
-    public void printResults() {
+    public StringBuilder printResults() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Word count = ").append(wordCount).append("\n").
                 append("Average word length = ").append(calculateAverageWordLength(lengthsAndQuantities)).append("\n");
@@ -32,18 +32,19 @@ public class TextFileAnalyser {
         }
         int max = Collections.max(lengthsAndQuantities.values());
 
-        stringBuilder.append(("The most frequently occurring word length is ")).append(max).append(" for word lengths of ");
+        stringBuilder.append(("The most frequently occurring word length is ")).append(max).append(", for word lengths of ");
         for (int key : lengthsAndQuantities.keySet()){
             if (lengthsAndQuantities.get(key) == max){
                 stringBuilder.append(key).append(" & ");
             }
         }
-        stringBuilder.replace(stringBuilder.length() - 2, stringBuilder.length() - 1, "");
+        stringBuilder.replace(stringBuilder.length() - 3, stringBuilder.length(), "");
         System.out.println(stringBuilder);
 
+        return stringBuilder;
     }
 
-    private ArrayList<String> removeSpecialCharacters(ArrayList<String> linesOfText){
+    public ArrayList<String> removeSpecialCharacters(ArrayList<String> linesOfText){
         ArrayList<String> tempList = new ArrayList<>();
         String tempLine = "";
         for (String line : linesOfText) {
@@ -55,7 +56,7 @@ public class TextFileAnalyser {
         return tempList;
     }
 
-    private  double calculateAverageWordLength(HashMap<Integer, Integer> lengthsAndQuantities){
+    public double calculateAverageWordLength(HashMap<Integer, Integer> lengthsAndQuantities){
         double average = 0;
 
         for (int length : lengthsAndQuantities.keySet()) {
@@ -71,8 +72,6 @@ public class TextFileAnalyser {
 
         for (String line : linesOfText) {
             for (String word : line.split(" ")) {
-
-                System.out.println(word);
                 int length = word.length();
 
                 if (!tempMap.containsKey(length)){

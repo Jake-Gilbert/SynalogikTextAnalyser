@@ -1,4 +1,4 @@
-package com.synalogik;
+package com.synalogik.proj;
 
 import java.io.File;
 
